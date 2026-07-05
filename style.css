@@ -1,0 +1,443 @@
+:root {
+  --akcent: #0f766e;        /* ciemny turkus */
+  --zloto: #b8873b;         /* elegancki miedziano-złoty (Booksy CTA) */
+  --zloto-hover: #a1752f;
+  --gwiazdki: #d4af37;      /* złoto gwiazdek */
+  --tlo: #ffffff;
+  --tlo-alt: #faf9f7;       /* ciepła, delikatna biel dla sekcji naprzemiennych */
+  --tekst: #2e2e2e;
+  --tekst-miekki: #5c5c5c;
+  --cien-karty: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --cien-karty-hover: 0 18px 40px rgba(0, 0, 0, 0.12);
+  --cien-google: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--tekst);
+  background: var(--tlo);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--tekst);
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============ 1. Nagłówek — sticky + glassmorphism ============ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* pełna biel — pasek nie przyciemnia się nad ciemnym zdjęciem */
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #073f3a; /* ciemniejszy turkus — pełny kontrast na szkle */
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.menu {
+  display: flex;
+  gap: 32px;
+}
+
+.menu a {
+  color: #1c1c1c;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.98rem;
+  transition: color 0.25s ease;
+}
+
+.menu a:hover { color: var(--akcent); }
+
+.header-tel {
+  font-weight: 700;
+  color: #111111; /* prawie czerń — czytelny nawet nad ciemnym zdjęciem */
+  text-decoration: none;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.header-tel:hover { color: var(--akcent); }
+
+/* ============ 2. Hero — parallax ============ */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  background-image: url("images/hero.jpg");
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* symetryczny gradient — treść jest wyśrodkowana */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+.hero .container {
+  position: relative;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.hero p {
+  margin: 28px auto 44px;
+  font-size: 1.2rem;
+  max-width: 540px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+}
+
+/* ============ Przyciski ============ */
+.btn {
+  display: inline-block;
+  background: var(--akcent);
+  color: #fff;
+  padding: 17px 42px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.35);
+}
+
+.btn:hover {
+  background: #0d5f58;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(15, 118, 110, 0.45);
+}
+
+.btn-drugorzedny {
+  display: inline-block;
+  margin-left: 16px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 17px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: border-color 0.25s ease;
+}
+
+.btn-drugorzedny:hover { border-color: #fff; }
+
+/* Pływający przycisk Booksy */
+.booksy-float {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1000;
+  background: var(--zloto);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  padding: 16px 28px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(184, 135, 59, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.booksy-float:hover {
+  background: var(--zloto-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 38px rgba(184, 135, 59, 0.6);
+}
+
+/* ============ Sekcje — dużo oddechu ============ */
+section { padding: 120px 0; }
+
+section h2 {
+  font-size: 2.6rem;
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+/* ============ 3. Usługi ============ */
+.uslugi-karty {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.karta {
+  background: var(--tlo);
+  border-radius: 14px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: var(--cien-karty);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.karta:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--cien-karty-hover);
+}
+
+.karta h3 {
+  font-size: 1.45rem;
+  margin-bottom: 14px;
+  color: var(--akcent);
+}
+
+.karta .cena {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--tekst);
+  margin-bottom: 16px;
+}
+
+.karta p { color: var(--tekst-miekki); }
+
+/* ============ 4. O nas ============ */
+#o-nas { background: var(--tlo-alt); }
+
+.o-nas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.o-nas img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.14);
+}
+
+.o-nas h2 {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.o-nas p {
+  color: var(--tekst-miekki);
+  font-size: 1.08rem;
+}
+
+/* ============ 5. Opinie ============ */
+.ocena-naglowek {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: -28px 0 56px;
+  text-align: center;
+}
+
+.ocena-gwiazdki {
+  color: var(--gwiazdki);
+  font-size: 1.8rem;
+  letter-spacing: 5px;
+}
+
+.ocena-tekst {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--tekst-miekki);
+}
+
+.opinie-lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+.opinia {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 36px;
+  box-shadow: var(--cien-google);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.opinia:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 50px rgba(0, 0, 0, 0.09);
+}
+
+.opinia-gora {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.opinia-ocena .gwiazdki {
+  color: var(--gwiazdki);
+  font-size: 1.25rem;
+  letter-spacing: 3px;
+}
+
+.opinia-zrodlo {
+  font-size: 0.85rem;
+  color: #9a9a9a;
+}
+
+.opinia blockquote {
+  margin: 0 0 18px;
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--tekst-miekki);
+}
+
+.opinia .autor {
+  font-weight: 600;
+  color: var(--tekst);
+}
+
+/* ============ 6. Kontakt ============ */
+#kontakt { background: var(--tlo-alt); }
+
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+}
+
+.kontakt-info p { margin-bottom: 20px; }
+
+.kontakt-info strong { color: var(--akcent); }
+
+.kontakt-info a {
+  color: var(--tekst);
+  font-weight: 600;
+}
+
+.mapa-placeholder {
+  background: #e4e2df;
+  border-radius: 14px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a8a8a;
+  font-weight: 500;
+}
+
+/* ============ 7. Rezerwacja online (Booksy) ============ */
+.rezerwacja { text-align: center; }
+
+.rezerwacja h2 { margin-bottom: 20px; }
+
+.rezerwacja-opis {
+  color: var(--tekst-miekki);
+  font-size: 1.1rem;
+  max-width: 520px;
+  margin: 0 auto 56px;
+}
+
+.booksy-iframe {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* ============ 8. Stopka ============ */
+footer {
+  background: #1f1f1f;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 32px 0;
+  font-size: 0.9rem;
+}
+
+/* ============ Responsywność ============ */
+@media (max-width: 900px) {
+  .menu { display: none; }
+}
+
+@media (max-width: 800px) {
+  section { padding: 80px 0; }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 44px;
+  }
+
+  /* background-attachment: fixed powoduje problemy na urządzeniach
+     dotykowych (iOS), więc na małych ekranach wracamy do scroll */
+  .hero { background-attachment: scroll; }
+
+  .uslugi-karty,
+  .o-nas,
+  .opinie-lista,
+  .kontakt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .o-nas, .kontakt-grid { gap: 44px; }
+
+  .btn-drugorzedny {
+    display: block;
+    margin: 20px auto 0;
+    width: fit-content;
+  }
+
+  .booksy-iframe { height: 520px; }
+
+  .booksy-float {
+    right: 16px;
+    bottom: 16px;
+    padding: 14px 22px;
+  }
+}

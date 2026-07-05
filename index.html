@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salon Nova — Fryzjerstwo, które rozumie Twój styl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. Nagłówek (sticky + glassmorphism) -->
+  <header>
+    <div class="container">
+      <div class="logo">Salon Nova</div>
+      <nav class="menu">
+        <a href="#uslugi">Usługi</a>
+        <a href="#o-nas">O nas</a>
+        <a href="#opinie">Opinie</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <a class="header-tel" href="tel:+48123456789">☎ 123 456 789</a>
+    </div>
+  </header>
+
+  <!-- 2. Hero (parallax) -->
+  <section class="hero">
+    <div class="container">
+      <h1>Fryzjerstwo, które rozumie Twój styl</h1>
+      <p>Strzyżenie, koloryzacja i stylizacja dopasowane do Ciebie — w samym sercu Krosna.</p>
+      <a class="btn" href="#rezerwacja">Umów wizytę online</a>
+      <a class="btn-drugorzedny" href="tel:+48123456789">lub zadzwoń: 123 456 789</a>
+    </div>
+  </section>
+
+  <!-- 3. Usługi -->
+  <section id="uslugi">
+    <div class="container">
+      <h2>Usługi</h2>
+      <div class="uslugi-karty">
+        <div class="karta">
+          <h3>Strzyżenie</h3>
+          <div class="cena">od 80 zł</div>
+          <p>Precyzyjne cięcie dopasowane do kształtu twarzy i Twojego stylu życia.</p>
+        </div>
+        <div class="karta">
+          <h3>Koloryzacja</h3>
+          <div class="cena">od 180 zł</div>
+          <p>Od delikatnych refleksów po odważne metamorfozy — na profesjonalnych produktach.</p>
+        </div>
+        <div class="karta">
+          <h3>Stylizacja</h3>
+          <div class="cena">od 100 zł</div>
+          <p>Fryzury okolicznościowe i codzienne upięcia, które trzymają się cały dzień.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. O nas -->
+  <section id="o-nas">
+    <div class="container o-nas">
+      <div>
+        <h2>O nas</h2>
+        <p>Salon Nova to zespół fryzjerów z ponad dziesięcioletnim doświadczeniem. Słuchamy, doradzamy i nigdy nie wychodzisz od nas z fryzurą, której nie chcesz. Umów się i przekonaj się, dlaczego klienci wracają do nas latami.</p>
+      </div>
+      <img src="images/wnetrze.jpg" alt="Wnętrze salonu fryzjerskiego Salon Nova">
+    </div>
+  </section>
+
+  <!-- 5. Opinie (imitacja widgetu Google Reviews) -->
+  <section class="opinie" id="opinie">
+    <div class="container">
+      <h2>Opinie klientów</h2>
+
+      <div class="ocena-naglowek">
+        <span class="ocena-gwiazdki">★★★★★</span>
+        <span class="ocena-tekst">Ocena 5.0 — opinie naszych klientów</span>
+      </div>
+
+      <div class="opinie-lista">
+        <div class="opinia">
+          <div class="opinia-gora">
+            <div class="opinia-ocena"><span class="gwiazdki">★★★★★</span></div>
+            <div class="opinia-zrodlo">Zweryfikowana opinia</div>
+          </div>
+          <blockquote>„Najlepsza fryzura w moim życiu. W końcu ktoś zrozumiał, o co mi chodzi."</blockquote>
+          <div class="autor">Ania K.</div>
+        </div>
+        <div class="opinia">
+          <div class="opinia-gora">
+            <div class="opinia-ocena"><span class="gwiazdki">★★★★★</span></div>
+            <div class="opinia-zrodlo">Zweryfikowana opinia</div>
+          </div>
+          <blockquote>„Profesjonalna koloryzacja i świetna atmosfera. Nie zmieniam salonu od dwóch lat."</blockquote>
+          <div class="autor">Marta W.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Kontakt -->
+  <section id="kontakt">
+    <div class="container">
+      <h2>Kontakt</h2>
+      <div class="kontakt-grid">
+        <div class="kontakt-info">
+          <p><strong>Adres:</strong> Rynek 12, 38-400 Krosno</p>
+          <p><strong>Godziny otwarcia:</strong><br>
+            pon–pt: 9:00–19:00<br>
+            sobota: 9:00–15:00<br>
+            niedziela: nieczynne</p>
+          <p><strong>Telefon:</strong> <a href="tel:+48123456789">123 456 789</a></p>
+        </div>
+        <div class="mapa-placeholder">Mapa dojazdu</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Rezerwacja online (widget Booksy) -->
+  <section class="rezerwacja" id="rezerwacja">
+    <div class="container">
+      <h2>Rezerwuj wygodnie online</h2>
+      <p class="rezerwacja-opis">Wybierz usługę, fryzjera i termin — kalendarz jest dostępny całą dobę.</p>
+      <iframe class="booksy-iframe" src="booksy-widget.html" title="Kalendarz rezerwacji Booksy" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- 8. Stopka -->
+  <footer>
+    <div class="container">© 2026 Salon Nova. Wszelkie prawa zastrzeżone.</div>
+  </footer>
+
+  <!-- Pływający przycisk rezerwacji Booksy -->
+  <a class="booksy-float" href="#rezerwacja">Rezerwuj przez Booksy</a>
+
+</body>
+</html>
